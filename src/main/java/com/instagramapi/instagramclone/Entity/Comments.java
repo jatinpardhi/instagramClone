@@ -6,29 +6,29 @@ import jakarta.persistence.Id;
 
 import java.sql.Timestamp;
 
-@Entity(name="Post")
-public class Post {
+@Entity(name="Comments")
+public class Comments {
     @Id
     @GeneratedValue
     private int id;
-    private String postId;
-    private String userId;
-    private String userName;
-    private String postPath;
-    private Timestamp timestamp;
-    private int likeCount;
 
-    public Post() {
-        super();
+    private String commentId;
+    private String userId;
+    private String postId;
+    private Timestamp timestamp;
+    private String comment;
+
+    private String userName;
+    public Comments() {
     }
 
-    public Post(int id, String postId, String userId, String postPath, Timestamp timestamp, int likeCount) {
+    public Comments(int id, String commentId, String userId, String postId, Timestamp timestamp, String comment) {
         this.id = id;
-        this.postId = postId;
+        this.commentId = commentId;
         this.userId = userId;
-        this.postPath = postPath;
+        this.postId = postId;
         this.timestamp = timestamp;
-        this.likeCount = likeCount;
+        this.comment = comment;
     }
 
     public String getUserName() {
@@ -47,12 +47,12 @@ public class Post {
         this.id = id;
     }
 
-    public String getPostId() {
-        return postId;
+    public String getCommentId() {
+        return commentId;
     }
 
-    public void setPostId(String postId) {
-        this.postId = postId;
+    public void setCommentId(String commentId) {
+        this.commentId = commentId;
     }
 
     public String getUserId() {
@@ -63,12 +63,12 @@ public class Post {
         this.userId = userId;
     }
 
-    public String getPostPath() {
-        return postPath;
+    public String getPostId() {
+        return postId;
     }
 
-    public void setPostPath(String postPath) {
-        this.postPath = postPath;
+    public void setPostId(String postId) {
+        this.postId = postId;
     }
 
     public Timestamp getTimestamp() {
@@ -79,11 +79,11 @@ public class Post {
         this.timestamp = timestamp;
     }
 
-    public int getLikeCount() {
-        return likeCount;
+    public String getComment() {
+        return comment;
     }
 
-    public void setLikeCount(int likeCount) {
-        this.likeCount = likeCount;
+    public void setComment(String comment) {
+        this.comment = comment;
     }
 }
